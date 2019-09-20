@@ -14,7 +14,7 @@
 			],
 			"sinks": [],
 			"transformations": [],
-			"script": "\n\nsource(output(\n\t\tColumn_1 as string,\n\t\tColumn_2 as string,\n\t\tColumn_3 as string,\n\t\tColumn_4 as string,\n\t\tColumn_5 as string,\n\t\tColumn_6 as string,\n\t\tColumn_7 as string,\n\t\tColumn_8 as string,\n\t\tColumn_9 as string,\n\t\tColumn_10 as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false) ~> source1"
+			"script": "\n\nsource(output(\n\t\tProductID as string,\n\t\tProductName as string,\n\t\tSupplierID as string,\n\t\tCategoryID as string,\n\t\tQuantityPerUnit as string,\n\t\tUnitPrice as string,\n\t\tUnitsInStock as string,\n\t\tUnitsOnOrder as string,\n\t\tReorderLevel as string,\n\t\tDiscontinued as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false) ~> source1"
 		}
 	}
 }
