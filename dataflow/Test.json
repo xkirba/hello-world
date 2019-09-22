@@ -1,0 +1,32 @@
+{
+	"name": "Test",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "Northwind",
+						"type": "DatasetReference"
+					},
+					"name": "Northwind"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "Northwind2",
+						"type": "DatasetReference"
+					},
+					"name": "Northadd"
+				}
+			],
+			"transformations": [
+				{
+					"name": "nameid"
+				}
+			],
+			"script": "\n\nsource(output(\n\t\tProductID as string,\n\t\tProductName as string,\n\t\tSupplierID as string,\n\t\tCategoryID as string,\n\t\tQuantityPerUnit as string,\n\t\tUnitPrice as string,\n\t\tUnitsInStock as string,\n\t\tUnitsOnOrder as string,\n\t\tReorderLevel as string,\n\t\tDiscontinued as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false) ~> Northwind\nNorthwind derive(Nameandid = ProductID+ProductName) ~> nameid\nnameid sink(input(\n\t\tProductID as string,\n\t\tProductName as string,\n\t\tSupplierID as string,\n\t\tCategoryID as string,\n\t\tQuantityPerUnit as string,\n\t\tUnitPrice as string,\n\t\tUnitsInStock as string,\n\t\tUnitsOnOrder as string,\n\t\tReorderLevel as string,\n\t\tDiscontinued as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false) ~> Northadd"
+		}
+	}
+}
